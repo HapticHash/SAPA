@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_photos1"
+        android:icon="@drawable/ic_photo_library_black_24dp"
+        android:title="Photos" />
+
+    <item
+        android:id="@+id/navigation_videos1"
+        android:icon="@drawable/ic_video_library_black_24dp"
+        android:title="Videos" />
+
+    <item
+        android:id="@+id/navigation_quotes1"
+        android:icon="@drawable/ic_format_quote_black_24dp"
+        android:title="Quotes" />
+
+</menu>
