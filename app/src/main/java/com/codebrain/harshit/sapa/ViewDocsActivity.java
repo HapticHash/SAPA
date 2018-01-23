@@ -9,10 +9,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.webkit.WebView;
 
-import com.github.barteksc.pdfviewer.PDFView;
-import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
-import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
-import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
 import com.shockwave.pdfium.PdfDocument;
 
 import java.util.List;
@@ -21,7 +17,6 @@ public class ViewDocsActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
     public static final String SAMPLE_FILE = "SIH2018.pdf";
-    PDFView pdfView;
     private int position = 0;
     Integer pageNumber = 0;
     String pdfFileName,url;

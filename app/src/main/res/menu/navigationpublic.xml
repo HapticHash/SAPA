@@ -12,7 +12,7 @@
         android:title="Videos" />
 
     <item
-        android:id="@+id/navigation_quotes1"
+        android:id="@+id/navigation_quotes"
         android:icon="@drawable/ic_format_quote_black_24dp"
         android:title="Quotes" />
 

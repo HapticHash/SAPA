@@ -43,7 +43,7 @@ public class PicsFragment extends Fragment {
     private FirebaseDatabase database;
     private DatabaseReference mRef;
     private Activity activity;
-
+    int height, width;
     //int placeImage[]= {R.drawable.five, R.drawable.six, R.drawable.bg3, R.drawable.seven, R.drawable.icon_1, R.drawable.icon_2, R.drawable.icon_3, R.drawable.icon_4};
     Context context;
 
@@ -84,6 +84,9 @@ public class PicsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        height = getActivity().getWindowManager().getDefaultDisplay().getHeight();
+        width = getActivity().getWindowManager().getDefaultDisplay().getWidth();
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -105,6 +108,7 @@ public class PicsFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_pics, container, false);
         rootView.setTag(TAG);
+
         final RecyclerView favPlaces = (RecyclerView) rootView.findViewById(R.id.favPlaces);
         setupRecycleview(favPlaces);
 
@@ -189,14 +193,18 @@ public class PicsFragment extends Fragment {
         public StaggeredAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             // create a new view
             View v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.staggered_layout, parent, false);
+                    .inflate(R.layout.staggered_layout_img, parent, false);
             // set the view's size, margins, paddings and layout parameters
             return new StaggeredAdapter.ViewHolder(v);
         }
 
         @Override
         public void onBindViewHolder(final ViewHolder holder, final int position) {
+            ViewGroup.LayoutParams params = holder.placePic.getLayoutParams();
+            params.width = width/3;
+            params.height = width/3;
 
+            holder.placePic.setLayoutParams(params);
             Glide.with(context).load(placeList.get(position)).apply(new RequestOptions().placeholder(R.drawable.loading_img)).into(holder.placePic);
             Log.d("xyz","hello"+placeList.get(position));
             holder.placePic.setOnClickListener(new View.OnClickListener() {

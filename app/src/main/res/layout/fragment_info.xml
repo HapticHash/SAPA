@@ -1,0 +1,233 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bgnew"
+    tools:context="com.codebrain.harshit.sapa.InfoFragment">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="@font/montreal_semibold"
+        android:padding="20dp"
+        android:text="About SAPRSA" />
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/title"
+        android:paddingLeft="10dp"
+        android:textColor="#222"
+        android:fontFamily="@font/montreal_medium"
+        android:layout_marginLeft="20dp"
+        android:text="People involved" />
+
+    <android.support.v7.widget.CardView
+            android:id="@+id/profile1"
+            android:layout_below="@+id/heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            app:cardUseCompatPadding="true"
+            app:cardCornerRadius="5dp">
+
+            <RelativeLayout
+                android:id="@+id/card_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/profilePic"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/profile"
+                    android:scaleType="fitXY"/>
+
+                <RelativeLayout
+                    android:id="@+id/info"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/profilePic"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Full Name"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/montreal_semibold" />
+
+                    <TextView
+                        android:id="@+id/occup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/name"
+                        android:paddingTop="4dp"
+                        android:text="DRM RJT"
+                        android:textColor="#000"
+                        android:fontFamily="@font/montreal_medium" />
+
+                    <TextView
+                        android:id="@+id/done"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/occup"
+                        android:paddingTop="4dp"
+                        android:text="Idea Approved"
+                        android:textColor="#000"
+                        android:fontFamily="@font/montreal_medium" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/profile2"
+        android:layout_below="@+id/profile1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="5dp">
+
+        <RelativeLayout
+            android:id="@+id/card_detail2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/profilePic2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/profile"
+                android:scaleType="fitXY"/>
+
+            <RelativeLayout
+                android:id="@+id/info2"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/profilePic2"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/name2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="B. K. Singh"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/montreal_semibold" />
+
+                <TextView
+                    android:id="@+id/occup2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/name2"
+                    android:paddingTop="4dp"
+                    android:text="Sr. DSO RJT"
+                    android:textColor="#000"
+                    android:fontFamily="@font/montreal_medium" />
+
+                <TextView
+                    android:id="@+id/done2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/occup2"
+                    android:paddingTop="4dp"
+                    android:text="Gave Idea"
+                    android:textColor="#000"
+                    android:fontFamily="@font/montreal_medium" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/profile3"
+        android:layout_below="@+id/profile2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="5dp">
+
+        <RelativeLayout
+            android:id="@+id/card_detail3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/profilePic3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/profile"
+                android:scaleType="fitXY"/>
+
+            <RelativeLayout
+                android:id="@+id/info3"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/profilePic3"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/name3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Harshit K. Singh"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/montreal_semibold" />
+
+                <TextView
+                    android:id="@+id/occup3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/name3"
+                    android:paddingTop="4dp"
+                    android:text="Engineering Student"
+                    android:textColor="#000"
+                    android:fontFamily="@font/montreal_medium" />
+
+                <TextView
+                    android:id="@+id/done3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/occup3"
+                    android:paddingTop="4dp"
+                    android:text="Developed App"
+                    android:textColor="#000"
+                    android:fontFamily="@font/montreal_medium" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>

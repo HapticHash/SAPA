@@ -1,22 +1,19 @@
 package com.codebrain.harshit.sapa;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -40,10 +37,13 @@ public class DocsFragment extends Fragment {
     protected RecyclerView mRecyclerView3;
     private FirebaseDatabase database;
     private DatabaseReference mRef;
-
+    int height, width;
     //int placeImage[]= {R.drawable.five, R.drawable.six, R.drawable.bg3, R.drawable.seven, R.drawable.icon_1, R.drawable.icon_2, R.drawable.icon_3, R.drawable.icon_4};
     Context context;
+    WebView webView;
     ArrayList<String> placeImage = new ArrayList<>();
+    ArrayList<String> placeTitle = new ArrayList<>();
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -80,6 +80,10 @@ public class DocsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        height = getActivity().getWindowManager().getDefaultDisplay().getHeight();
+        width = getActivity().getWindowManager().getDefaultDisplay().getWidth();
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -93,6 +97,10 @@ public class DocsFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_docs, container, false);
         rootView.setTag(TAG);
+
+        webView = (WebView) rootView.findViewById(R.id.webView1);
+        webView.getSettings().setJavaScriptEnabled(true);
+
         mRecyclerView3 = (RecyclerView) rootView.findViewById(R.id.favDocs);
         setupRecycleview(mRecyclerView3);
 
@@ -112,7 +120,9 @@ public class DocsFragment extends Fragment {
 
                 for (DataSnapshot p : dataSnapshot.getChildren()) {
                     String url = (String) p.child("url").getValue();
+                    String name = (String) p.child("title").getValue();
                     placeImage.add(url);
+                    placeTitle.add(name);
                     Log.d("xyz",url+"");
 
                 }
@@ -129,7 +139,7 @@ public class DocsFragment extends Fragment {
 
     private void setupRecycleview(RecyclerView rv)
     {
-        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL);
         layoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
         rv.setLayoutManager(layoutManager);
         rv.setHasFixedSize(true);
@@ -139,19 +149,19 @@ public class DocsFragment extends Fragment {
 
     public class StaggeredAdapter extends RecyclerView.Adapter<StaggeredAdapter.ViewHolder> {
 
-
-
         ArrayList<String> placeList;
         // Provide a reference to the views for each data item
         public class ViewHolder extends RecyclerView.ViewHolder {
 
 
             public ImageView placePic;
+            public TextView txtTitle;
 
             public ViewHolder(View itemView) {
                 super(itemView);
 
                 placePic = (ImageView) itemView.findViewById(R.id.placePic);
+                txtTitle = (TextView) itemView.findViewById(R.id.titleText);
             }
         }
 
@@ -166,24 +176,33 @@ public class DocsFragment extends Fragment {
         public StaggeredAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             // create a new view
             View v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.staggered_layout, parent, false);
+                    .inflate(R.layout.staggered_layout_docs, parent, false);
             // set the view's size, margins, paddings and layout parameters
+
             return new StaggeredAdapter.ViewHolder(v);
         }
 
         @Override
         public void onBindViewHolder(ViewHolder holder, final int position) {
 
-            Glide.with(context).load(placeList.get(position)).apply(new RequestOptions().placeholder(R.drawable.loading_docs)).into(holder.placePic);
+            ViewGroup.LayoutParams params = holder.placePic.getLayoutParams();
+            params.width = width/3;
+            params.height = width/3;
+
+            holder.txtTitle.setText(placeTitle.get(position));
+
+//            Glide.with(context).load(placeList.get(position)).apply(new RequestOptions().placeholder(R.drawable.loading_docs)).into(holder.placePic);
             Log.d("xyz","hello Docs "+placeList.get(position));
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     // open another activity on item click
-                    Intent intent = new Intent(getContext(), ViewDocsActivity.class);
+                    webView.loadUrl(placeList.get(position));
+
+                   /* Intent intent = new Intent(getContext(), ViewDocsActivity.class);
                     intent.putExtra("id", position+""); // put image data in Intent
                     intent.putExtra("docs", placeList.get(position)); // put image data in Intent
-                    startActivity(intent); // start Intent
+                    startActivity(intent); // start Intent*/
 
                 }
             });
@@ -236,4 +255,5 @@ public class DocsFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
 }

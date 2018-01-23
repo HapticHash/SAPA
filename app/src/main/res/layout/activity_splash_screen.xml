@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg2"
+    tools:context="com.codebrain.harshit.sapa.SplashScreen">
+
+    <RelativeLayout
+        android:id="@+id/group"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/montreal"
+            android:typeface="sans"
+            android:textColor="#fff"
+            android:text="Welcome to"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/welcome"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/montreal_bold"
+            android:text="Safety Application for \nPublic and Railway \nStaffs Awareness"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/view"
+            android:layout_width="160dp"
+            android:layout_height="170dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/title"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/app_logo"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view"
+            android:id="@+id/concept"
+            android:text="Concept By: "
+            android:gravity="center_horizontal"
+            android:fontFamily="@font/montreal_semibold"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:layout_marginTop="50dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/concept"
+            android:id="@+id/conceptNames"
+            android:text="Sr. DSO RJT"
+            android:gravity="center_horizontal"
+            android:fontFamily="@font/montreal_medium"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

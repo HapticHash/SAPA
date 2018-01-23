@@ -41,7 +41,7 @@ public class PicsFragmentPub extends Fragment {
     private FirebaseDatabase database;
     private DatabaseReference mRef;
     private Activity activity;
-
+    int height, width;
     Context context;
 
     ArrayList<String> placeImage = new ArrayList<>();
@@ -86,6 +86,8 @@ public class PicsFragmentPub extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        height = getActivity().getWindowManager().getDefaultDisplay().getHeight();
+        width = getActivity().getWindowManager().getDefaultDisplay().getWidth();
     }
 
     @Override
@@ -142,8 +144,6 @@ public class PicsFragmentPub extends Fragment {
 
     public class StaggeredAdapter extends RecyclerView.Adapter<StaggeredAdapter.ViewHolder> {
 
-
-
         ArrayList<String> placeList;
         // Provide a reference to the views for each data item
         public class ViewHolder extends RecyclerView.ViewHolder {
@@ -169,13 +169,19 @@ public class PicsFragmentPub extends Fragment {
         public StaggeredAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             // create a new view
             View v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.staggered_layout, parent, false);
+                    .inflate(R.layout.staggered_layout_img, parent, false);
             // set the view's size, margins, paddings and layout parameters
             return new StaggeredAdapter.ViewHolder(v);
         }
 
         @Override
         public void onBindViewHolder(final ViewHolder holder, final int position) {
+
+            ViewGroup.LayoutParams params = holder.placePic.getLayoutParams();
+            params.width = width/3;
+            params.height = width/3;
+
+            holder.placePic.setLayoutParams(params);
 
             Glide.with(context).load(placeList.get(position)).apply(new RequestOptions().placeholder(R.drawable.loading_img)).into(holder.placePic);
             Log.d("xyz","hello"+placeList.get(position));

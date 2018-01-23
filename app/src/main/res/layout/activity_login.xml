@@ -11,7 +11,7 @@
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/montreal"
         android:typeface="sans"
@@ -26,10 +26,10 @@
         android:layout_below="@id/welcome"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/montreal_bold"
-        android:text="Safety Application for \nPublic Awareness"
+        android:text="Safety Application for \nPublic and Railway \nStaffs Awareness"
         android:textAlignment="center"
         android:textColor="#000"
-        android:textSize="35sp"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <ImageView
@@ -38,7 +38,7 @@
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/title"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/logo_rail"/>
 
     <RelativeLayout

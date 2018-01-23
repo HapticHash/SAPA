@@ -13,7 +13,7 @@ import com.robertsimoes.quoteable.Quoteable;
 
 public class MainActivityPublic extends AppCompatActivity implements Quoteable.ResponseReadyListener  {
 
-    static String Quote,Author;
+    static String Quote,Author,QuoteF, AuthorF;
     Context ctx;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -30,8 +30,8 @@ public class MainActivityPublic extends AppCompatActivity implements Quoteable.R
                 case R.id.navigation_videos1:
                     fragmentTransaction.replace(R.id.content, new VideoFragmentPub()).commit();
                     return true;
-                case R.id.navigation_quotes1:
-                    fragmentTransaction.replace(R.id.content, new QuotesFragment()).commit();
+                case R.id.navigation_quotes:
+                    fragmentTransaction.replace(R.id.content, new QuotesFragmentPub()).commit();
                     return true;
             }
             return false;
@@ -63,7 +63,8 @@ public class MainActivityPublic extends AppCompatActivity implements Quoteable.R
     }
 
     @Override
-    public void onQuoteResponseFailed(QuotePackage quotePackage) {
-
+    public void onQuoteResponseFailed(QuotePackage defaultResponse) {
+        QuoteF = defaultResponse.getQuote();
+        AuthorF = defaultResponse.getAuthor();
     }
 }

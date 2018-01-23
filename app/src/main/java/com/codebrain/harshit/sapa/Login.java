@@ -12,6 +12,7 @@ public class Login extends AppCompatActivity {
 
     private Button btnPass, btnEmp;
     private EditText userName, password;
+    private DatabaseHandler db = new DatabaseHandler(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,9 @@ public class Login extends AppCompatActivity {
 
         if(inpUser.equals("Safety") && inpPass.equals("Railway"))
         {
+
             Intent i = new Intent(Login.this, MainActivity.class);
+            db.globalsetvalue("flag","2");
             startActivity(i);
             /*Toast.makeText(this, "Successfully Logged In as Employee.", Toast.LENGTH_LONG).show();*/
         }
@@ -46,6 +49,7 @@ public class Login extends AppCompatActivity {
     public void onClickBtnPass(View v)
     {
         Intent i = new Intent(Login.this, MainActivity.class);
+        db.globalsetvalue("flag","1");
         startActivity(i);
        /* Toast.makeText(this, "Continuing as Public", Toast.LENGTH_LONG).show(); */
     }
