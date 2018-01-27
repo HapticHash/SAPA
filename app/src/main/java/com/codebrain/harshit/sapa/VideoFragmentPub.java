@@ -200,7 +200,7 @@ public class VideoFragmentPub extends Fragment {
                 @Override
                 public void onClick(View view) {
                     // open another activity on item click
-                    Intent intent = new Intent(getContext(), ViewVideoActivity.class);
+                    Intent intent = new Intent(getContext(), VideoShowing.class);
                     intent.putExtra("id", position+""); // put image data in Intent
                     intent.putExtra("imagename", placeList.get(position)); // put image data in Intent
                     startActivity(intent); // start Intent

@@ -31,7 +31,7 @@ public class Login extends AppCompatActivity {
         String inpUser = userName.getText().toString();
         String inpPass = password.getText().toString();
 
-        if(inpUser.equals("Safety") && inpPass.equals("Railway"))
+        if(inpUser.equals("safety") && inpPass.equals("railway") || inpUser.equals("SAFETY") && inpPass.equals("RAILWAY"))
         {
 
             Intent i = new Intent(Login.this, MainActivity.class);
@@ -48,7 +48,7 @@ public class Login extends AppCompatActivity {
 
     public void onClickBtnPass(View v)
     {
-        Intent i = new Intent(Login.this, MainActivity.class);
+        Intent i = new Intent(Login.this, MainActivityPublic.class);
         db.globalsetvalue("flag","1");
         startActivity(i);
        /* Toast.makeText(this, "Continuing as Public", Toast.LENGTH_LONG).show(); */

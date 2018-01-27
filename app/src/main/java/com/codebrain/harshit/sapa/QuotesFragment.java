@@ -1,6 +1,7 @@
 package com.codebrain.harshit.sapa;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,12 +25,14 @@ import com.robertsimoes.quoteable.Quoteable;
  * Use the {@link QuotesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class QuotesFragment extends Fragment {
+public class QuotesFragment extends Fragment  implements View.OnClickListener {
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     Context context;
+    Button btn;
 
     // TODO: Rename and change types of parameters
     TextView quote, author;
@@ -37,6 +41,7 @@ public class QuotesFragment extends Fragment {
 
     private TextView textView;
     private OnFragmentInteractionListener mListener;
+    private DatabaseHandler db;
 
     public QuotesFragment() {
         // Required empty public constructor
@@ -77,6 +82,10 @@ public class QuotesFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_quotes, container, false);
         quote = (TextView)view.findViewById(R.id.quote);
         author = (TextView)view.findViewById(R.id.author);
+        context = getContext();
+        db = new DatabaseHandler(context);
+        btn = (Button)view.findViewById(R.id.logout);
+        btn.setOnClickListener(this);
 
             quote.setText(MainActivity.Quote);
 
@@ -90,12 +99,20 @@ public class QuotesFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onClick(View view) {
+        Intent i = new Intent(getContext(), Login.class);
+        db.globalsetvalue("flag","0");
+        startActivity(i);
+    }
+
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
     }
+
 
     @Override
     public void onAttach(Context context) {
@@ -113,7 +130,6 @@ public class QuotesFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
-
 
 
     /**

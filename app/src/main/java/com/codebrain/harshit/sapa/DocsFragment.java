@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
@@ -139,9 +140,7 @@ public class DocsFragment extends Fragment {
 
     private void setupRecycleview(RecyclerView rv)
     {
-        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL);
-        layoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
-        rv.setLayoutManager(layoutManager);
+        rv.setLayoutManager(new GridLayoutManager(context,3));
         rv.setHasFixedSize(true);
         rv.setAdapter(new StaggeredAdapter(rv.getContext(),placeImage));
 

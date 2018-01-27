@@ -18,13 +18,16 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+
 import com.bumptech.glide.Glide;
+import com.jsibbold.zoomage.ZoomageView;
+
 
 import java.util.ArrayList;
 
 public class ViewImage extends AppCompatActivity {
     String url;
-    ImageView imageView;
+    ZoomageView zoomageView;
     ViewPager viewPager;
     Context context;
     private LayoutInflater inflater;
@@ -35,7 +38,7 @@ public class ViewImage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_image);
 
-        imageView = (ImageView)findViewById(R.id.img);
+       // photoView = (PhotoView)findViewById(R.id.img);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         context = getApplicationContext();
 
@@ -43,6 +46,7 @@ public class ViewImage extends AppCompatActivity {
         imgs = getIntent().getExtras().getStringArrayList("image");
         viewPager.setAdapter(new adapter(imgs));
         viewPager.setCurrentItem(pos);
+       // photoView.setImageResource();
     }
 
 
@@ -67,12 +71,12 @@ public class ViewImage extends AppCompatActivity {
         public Object instantiateItem(ViewGroup container, int position) {
 
             inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            ImageView imageView;
+            ZoomageView zoomageView;
             View viewLayout = inflater.inflate(R.layout.imagelayout,container,false);
 
-            imageView = viewLayout.findViewById(R.id.imgview1);
-            Glide.with(context).load(imgs.get(position)).into(imageView);
+            zoomageView = viewLayout.findViewById(R.id.imgview1);
 
+            Glide.with(context).load(imgs.get(position)).into(zoomageView);
 
                     ((ViewPager)container).addView(viewLayout);
              return viewLayout;

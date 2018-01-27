@@ -15,24 +15,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="@color/colorPrimary">
+            android:background="@color/colorWhite">
 
-            <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/placePic"
-                android:transitionName="trans"
-                android:src="@drawable/loading_docs"
-                android:scaleType="fitXY" />
+           <ImageView
+               android:id="@+id/placePic"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:scaleType="fitXY"
+               android:layout_marginRight="5dp"
+               android:scaleX="0.95"
+               android:src="@drawable/loading_docs"
+               android:transitionName="trans" />
 
            <TextView
                android:id="@+id/titleText"
                android:layout_width="fill_parent"
-               android:layout_height="50dp"
+               android:layout_height="wrap_content"
+               android:background="@color/colorPrimary"
                android:text="Title"
                android:textSize="18sp"
-               android:textColor="@color/colorWhite"
-               android:paddingLeft="7dp"
+               android:textColor="#fff"
+               android:paddingLeft="5dp"
+               android:paddingRight="5dp"
                android:gravity="left"/>
 
         </LinearLayout>

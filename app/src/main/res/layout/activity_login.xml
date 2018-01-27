@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/montreal"
         android:typeface="sans"
         android:textColor="#111"
@@ -26,16 +26,16 @@
         android:layout_below="@id/welcome"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/montreal_bold"
-        android:text="Safety Application for \nPublic and Railway \nStaffs Awareness"
+        android:text="Safety Application for Public and \nRailway Staff Awareness"
         android:textAlignment="center"
         android:textColor="#000"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/view"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/title"
         android:layout_marginTop="10dp"
@@ -57,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/layout_bg"
             android:backgroundTint="#1071F2"
             android:onClick="onClickBtnPass"
@@ -84,11 +84,11 @@
             android:layout_below="@+id/view2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/montreal"
+            android:fontFamily="@font/montreal_semibold"
             android:text="If you are Railway Employee"
             android:textAllCaps="false"
-            android:textColor="#eeeeee"
-            android:textSize="18sp"
+            android:textColor="#ff6d00"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:typeface="sans" />
 
@@ -111,6 +111,8 @@
                 android:ems="10"
                 android:textColor="#fff"
                 app:backgroundTint="#fff"
+                android:imeOptions="actionNext"
+                android:singleLine="true"
                 android:hint="Username" />
         </android.support.design.widget.TextInputLayout>
 
@@ -133,6 +135,8 @@
                 android:ems="10"
                 android:textColor="#fff"
                 app:backgroundTint="#fff"
+                android:imeOptions="actionNext"
+                android:singleLine="true"
                 android:hint="Password"
                 android:inputType="textPassword" />
         </android.support.design.widget.TextInputLayout>

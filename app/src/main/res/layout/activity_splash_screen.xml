@@ -32,10 +32,10 @@
             android:layout_below="@id/welcome"
             android:layout_centerHorizontal="true"
             android:fontFamily="@font/montreal_bold"
-            android:text="Safety Application for \nPublic and Railway \nStaffs Awareness"
+            android:text="Safety Application for \nPublic and Railway \nStaff Awareness"
             android:textAlignment="center"
             android:textColor="#fff"
-            android:textSize="35sp"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <ImageView
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/view"
             android:id="@+id/concept"
-            android:text="Concept By: "
+            android:text="Concept By "
             android:gravity="center_horizontal"
             android:fontFamily="@font/montreal_semibold"
             android:textColor="#fff"
@@ -64,13 +64,21 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/concept"
             android:id="@+id/conceptNames"
-            android:text="Sr. DSO RJT"
+            android:text="B.K.Singh \n(Sr. DSO RJT)"
             android:gravity="center_horizontal"
             android:fontFamily="@font/montreal_medium"
             android:textColor="#fff"
             android:textSize="20sp" />
 
-    </RelativeLayout>
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/conceptNames"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp" />
 
+    </RelativeLayout>
 
 </RelativeLayout>

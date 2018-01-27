@@ -6,6 +6,17 @@
     android:background="@color/colorPrimary"
     tools:context="com.codebrain.harshit.sapa.QuotesFragmentPub">
 
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/layout_bg2"/>
+
     <TextView
         android:id="@+id/quote"
         android:layout_width="match_parent"

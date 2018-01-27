@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -34,28 +35,30 @@ public class SplashScreen extends AppCompatActivity {
                 startActivity(i);*/
 
                 String flag = db.globalgetvalue("flag");
-
-                if ("flag"!="1" || "flag"!="0")
+                Log.d("abc","flag "+flag);
+                if (flag!="1" && flag!="0")
                 {
+                    Log.d("abc","flags"+flag);
                     db.globaladdData("flag","0");
                 }
-
-                if (flag == "0")
+                flag = db.globalgetvalue("flag");
+                Log.d("abc","flagss"+flag);
+                if (flag.equals("0"))
                 {
+                    Log.d("abc","flagsss"+flag);
                     Intent i = new Intent(SplashScreen.this, Login.class);
                     startActivity(i);
                 }
-                else if (flag == "1")
+                else if (flag.equals("1"))
                 {
                     Intent i = new Intent(SplashScreen.this, MainActivityPublic.class);
                     startActivity(i);
                 }
-                else if (flag == "2")
+                else if (flag.equals("2"))
                 {
                     Intent i = new Intent(SplashScreen.this, MainActivity.class);
                     startActivity(i);
                 }
-
                 // close this activity
                 finish();
             }

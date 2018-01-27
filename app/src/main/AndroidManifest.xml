@@ -3,6 +3,7 @@
     package="com.codebrain.harshit.sapa">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -13,6 +14,7 @@
         android:roundIcon="@drawable/app_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <!-- Splash screen -->
         <activity
             android:name=".SplashScreen"
@@ -29,15 +31,23 @@
         <activity
             android:name=".ViewImage"
             android:theme="@style/Fullscreen" />
-        <activity
-            android:name=".ViewVideoActivity"
-            android:theme="@style/Fullscreen" />
+
         <activity android:name=".ViewDocsActivity" />
-        <activity android:name=".Login" />
+
+        <activity
+            android:fitsSystemWindows="true"
+            android:screenOrientation="portrait"
+            android:name=".Login" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main_public" />
-        <activity android:name=".MainActivityPublic"></activity>
+
+        <activity android:name=".MainActivityPublic" />
+
+        <activity android:screenOrientation="sensor"
+            android:theme="@style/Fullscreen"
+            android:name=".VideoShowing"/>
     </application>
 
 </manifest>
